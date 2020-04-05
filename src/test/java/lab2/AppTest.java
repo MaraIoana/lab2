@@ -26,7 +26,7 @@ public class AppTest
     }
 
     @Test
-    public  void testAddStudent(){
+    public  void testAddStudent1(){
         StudentValidator studentValidator = new StudentValidator();
         StudentRepo studentRepo = new StudentRepo(studentValidator,"C:\\Users\\Mara\\IdeaProjects\\lab2\\src\\main\\java\\lab2\\studenti.xml");
         studentRepo.save(new Student("1","Ana",932,"email@email.com", "Prof. Dr. Ana"));
@@ -66,6 +66,326 @@ public class AppTest
         try
         {
             temeRepo.save(new Teme(1,"aasa",4,2));
+        }
+        catch(ValidationException e)
+        {
+            e.printStackTrace();
+            //assert("data not valid", e.getMessage());
+        }
+    }
+    @Test
+    public void testAddStudentIDEmpty()
+    {
+        StudentValidator studentValidator = new StudentValidator();
+        StudentRepo studentRepo = new StudentRepo(studentValidator,"C:\\Users\\Mara\\IdeaProjects\\lab2\\src\\main\\java\\lab2\\studenti.xml");
+        Student student1 = new Student(null,"Ana",932,"email@email.com", "Prof. Dr. Ana");
+        try
+        {
+            studentRepo.save(student1);
+        }
+        catch(ValidationException e)
+        {
+            e.printStackTrace();
+            //assert("data not valid", e.getMessage());
+        }
+    }
+    @Test
+    public void testAddStudentIDNotEmpty()
+    {
+        StudentValidator studentValidator = new StudentValidator();
+        StudentRepo studentRepo = new StudentRepo(studentValidator,"C:\\Users\\Mara\\IdeaProjects\\lab2\\src\\main\\java\\lab2\\studenti.xml");
+        Student student1 = new Student("1","Ana",932,"email@email.com", "Prof. Dr. Ana");
+        try
+        {
+            studentRepo.save(student1);
+        }
+        catch(ValidationException e)
+        {
+            e.printStackTrace();
+            //assert("data not valid", e.getMessage());
+        }
+    }
+    @Test
+    public void testAddStudentIDNumber()
+    {
+        StudentValidator studentValidator = new StudentValidator();
+        StudentRepo studentRepo = new StudentRepo(studentValidator,"C:\\Users\\Mara\\IdeaProjects\\lab2\\src\\main\\java\\lab2\\studenti.xml");
+        Student student1 = new Student("1","Ana",932,"email@email.com", "Prof. Dr. Ana");
+        try
+        {
+            studentRepo.save(student1);
+        }
+        catch(ValidationException e)
+        {
+            e.printStackTrace();
+            //assert("data not valid", e.getMessage());
+        }
+    }
+    @Test
+    public void testAddStudentIDNotNumber()
+    {
+        StudentValidator studentValidator = new StudentValidator();
+        StudentRepo studentRepo = new StudentRepo(studentValidator,"C:\\Users\\Mara\\IdeaProjects\\lab2\\src\\main\\java\\lab2\\studenti.xml");
+        Student student1 = new Student("a","Ana",932,"email@email.com", "Prof. Dr. Ana");
+        try
+        {
+            studentRepo.save(student1);
+        }
+        catch(ValidationException e)
+        {
+            e.printStackTrace();
+            //assert("data not valid", e.getMessage());
+        }
+    }
+    @Test
+    public void testAddStudentGroupNaturalNumber()
+    {
+        StudentValidator studentValidator = new StudentValidator();
+        StudentRepo studentRepo = new StudentRepo(studentValidator,"C:\\Users\\Mara\\IdeaProjects\\lab2\\src\\main\\java\\lab2\\studenti.xml");
+        Student student1 = new Student("1","Ana",932,"email@email.com", "Prof. Dr. Ana");
+        try
+        {
+            studentRepo.save(student1);
+        }
+        catch(ValidationException e)
+        {
+            e.printStackTrace();
+            //assert("data not valid", e.getMessage());
+        }
+    }
+    @Test
+    public void testAddStudentGroupNotNaturalNumber()
+    {
+        StudentValidator studentValidator = new StudentValidator();
+        StudentRepo studentRepo = new StudentRepo(studentValidator,"C:\\Users\\Mara\\IdeaProjects\\lab2\\src\\main\\java\\lab2\\studenti.xml");
+        Student student1 = new Student("1","Ana",-932,"email@email.com", "Prof. Dr. Ana");
+        try
+        {
+            studentRepo.save(student1);
+        }
+        catch(ValidationException e)
+        {
+            e.printStackTrace();
+            //assert("data not valid", e.getMessage());
+        }
+    }
+    @Test
+    public void testAddStudentGroup110Invalid()
+    {
+        StudentValidator studentValidator = new StudentValidator();
+        StudentRepo studentRepo = new StudentRepo(studentValidator,"C:\\Users\\Mara\\IdeaProjects\\lab2\\src\\main\\java\\lab2\\studenti.xml");
+        Student student1 = new Student("1","Ana",110,"email@email.com", "Prof. Dr. Ana");
+        try
+        {
+            studentRepo.save(student1);
+        }
+        catch(ValidationException e)
+        {
+            e.printStackTrace();
+            //assert("data not valid", e.getMessage());
+        }
+    }
+    @Test
+    public void testAddStudentGroup111Valid()
+    {
+        StudentValidator studentValidator = new StudentValidator();
+        StudentRepo studentRepo = new StudentRepo(studentValidator,"C:\\Users\\Mara\\IdeaProjects\\lab2\\src\\main\\java\\lab2\\studenti.xml");
+        Student student1 = new Student("1","Ana",111,"email@email.com", "Prof. Dr. Ana");
+        try
+        {
+            studentRepo.save(student1);
+        }
+        catch(ValidationException e)
+        {
+            e.printStackTrace();
+            //assert("data not valid", e.getMessage());
+        }
+    }
+    @Test
+    public void testAddStudentGroup938Invalid()
+    {
+        StudentValidator studentValidator = new StudentValidator();
+        StudentRepo studentRepo = new StudentRepo(studentValidator,"C:\\Users\\Mara\\IdeaProjects\\lab2\\src\\main\\java\\lab2\\studenti.xml");
+        Student student1 = new Student("1","Ana",938,"email@email.com", "Prof. Dr. Ana");
+        try
+        {
+            studentRepo.save(student1);
+        }
+        catch(ValidationException e)
+        {
+            e.printStackTrace();
+            //assert("data not valid", e.getMessage());
+        }
+    }
+    @Test
+    public void testAddStudentGroup937Valid()
+    {
+        StudentValidator studentValidator = new StudentValidator();
+        StudentRepo studentRepo = new StudentRepo(studentValidator,"C:\\Users\\Mara\\IdeaProjects\\lab2\\src\\main\\java\\lab2\\studenti.xml");
+        Student student1 = new Student("1","Ana",937,"email@email.com", "Prof. Dr. Ana");
+        try
+        {
+            studentRepo.save(student1);
+        }
+        catch(ValidationException e)
+        {
+            e.printStackTrace();
+            //assert("data not valid", e.getMessage());
+        }
+    }
+    @Test
+    public void testAddStudentGroupYear0Invalid()
+    {
+        StudentValidator studentValidator = new StudentValidator();
+        StudentRepo studentRepo = new StudentRepo(studentValidator,"C:\\Users\\Mara\\IdeaProjects\\lab2\\src\\main\\java\\lab2\\studenti.xml");
+        Student student1 = new Student("1","Ana",907,"email@email.com", "Prof. Dr. Ana");
+        try
+        {
+            studentRepo.save(student1);
+        }
+        catch(ValidationException e)
+        {
+            e.printStackTrace();
+            //assert("data not valid", e.getMessage());
+        }
+    }
+    @Test
+    public void testAddStudentGroupYear1Valid()
+    {
+        StudentValidator studentValidator = new StudentValidator();
+        StudentRepo studentRepo = new StudentRepo(studentValidator,"C:\\Users\\Mara\\IdeaProjects\\lab2\\src\\main\\java\\lab2\\studenti.xml");
+        Student student1 = new Student("1","Ana",917,"email@email.com", "Prof. Dr. Ana");
+        try
+        {
+            studentRepo.save(student1);
+        }
+        catch(ValidationException e)
+        {
+            e.printStackTrace();
+            //assert("data not valid", e.getMessage());
+        }
+    }
+    @Test
+    public void testAddStudentGroupYear3Valid()
+    {
+        StudentValidator studentValidator = new StudentValidator();
+        StudentRepo studentRepo = new StudentRepo(studentValidator,"C:\\Users\\Mara\\IdeaProjects\\lab2\\src\\main\\java\\lab2\\studenti.xml");
+        Student student1 = new Student("1","Ana",937,"email@email.com", "Prof. Dr. Ana");
+        try
+        {
+            studentRepo.save(student1);
+        }
+        catch(ValidationException e)
+        {
+            e.printStackTrace();
+            //assert("data not valid", e.getMessage());
+        }
+    }
+    @Test
+    public void testAddStudentGroupYear4Invalid()
+    {
+        StudentValidator studentValidator = new StudentValidator();
+        StudentRepo studentRepo = new StudentRepo(studentValidator,"C:\\Users\\Mara\\IdeaProjects\\lab2\\src\\main\\java\\lab2\\studenti.xml");
+        Student student1 = new Student("1","Ana",947,"email@email.com", "Prof. Dr. Ana");
+        try
+        {
+            studentRepo.save(student1);
+        }
+        catch(ValidationException e)
+        {
+            e.printStackTrace();
+            //assert("data not valid", e.getMessage());
+        }
+    }
+    @Test
+    public void testAddStudentGroupClass0Invalid()
+    {
+        StudentValidator studentValidator = new StudentValidator();
+        StudentRepo studentRepo = new StudentRepo(studentValidator,"C:\\Users\\Mara\\IdeaProjects\\lab2\\src\\main\\java\\lab2\\studenti.xml");
+        Student student1 = new Student("1","Ana",920,"email@email.com", "Prof. Dr. Ana");
+        try
+        {
+            studentRepo.save(student1);
+        }
+        catch(ValidationException e)
+        {
+            e.printStackTrace();
+            //assert("data not valid", e.getMessage());
+        }
+    }
+    @Test
+    public void testAddStudentGroupClass1Valid()
+    {
+        StudentValidator studentValidator = new StudentValidator();
+        StudentRepo studentRepo = new StudentRepo(studentValidator,"C:\\Users\\Mara\\IdeaProjects\\lab2\\src\\main\\java\\lab2\\studenti.xml");
+        Student student1 = new Student("1","Ana",921,"email@email.com", "Prof. Dr. Ana");
+        try
+        {
+            studentRepo.save(student1);
+        }
+        catch(ValidationException e)
+        {
+            e.printStackTrace();
+            //assert("data not valid", e.getMessage());
+        }
+    }
+    @Test
+    public void testAddStudentGroupClass7Valid()
+    {
+        StudentValidator studentValidator = new StudentValidator();
+        StudentRepo studentRepo = new StudentRepo(studentValidator,"C:\\Users\\Mara\\IdeaProjects\\lab2\\src\\main\\java\\lab2\\studenti.xml");
+        Student student1 = new Student("1","Ana",927,"email@email.com", "Prof. Dr. Ana");
+        try
+        {
+            studentRepo.save(student1);
+        }
+        catch(ValidationException e)
+        {
+            e.printStackTrace();
+            //assert("data not valid", e.getMessage());
+        }
+    }
+    @Test
+    public void testAddStudentGroupClass8Invalid()
+    {
+        StudentValidator studentValidator = new StudentValidator();
+        StudentRepo studentRepo = new StudentRepo(studentValidator,"C:\\Users\\Mara\\IdeaProjects\\lab2\\src\\main\\java\\lab2\\studenti.xml");
+        Student student1 = new Student("1","Ana",928,"email@email.com", "Prof. Dr. Ana");
+        try
+        {
+            studentRepo.save(student1);
+        }
+        catch(ValidationException e)
+        {
+            e.printStackTrace();
+            //assert("data not valid", e.getMessage());
+        }
+    }
+    @Test
+    public void testAddStudentNameEmpty()
+    {
+        StudentValidator studentValidator = new StudentValidator();
+        StudentRepo studentRepo = new StudentRepo(studentValidator,"C:\\Users\\Mara\\IdeaProjects\\lab2\\src\\main\\java\\lab2\\studenti.xml");
+        Student student1 = new Student("1","",927,"email@email.com", "Prof. Dr. Ana");
+        try
+        {
+            studentRepo.save(student1);
+        }
+        catch(ValidationException e)
+        {
+            e.printStackTrace();
+            //assert("data not valid", e.getMessage());
+        }
+    }
+    @Test
+    public void testAddStudentNameNotEmpty()
+    {
+        StudentValidator studentValidator = new StudentValidator();
+        StudentRepo studentRepo = new StudentRepo(studentValidator,"C:\\Users\\Mara\\IdeaProjects\\lab2\\src\\main\\java\\lab2\\studenti.xml");
+        Student student1 = new Student("1","Ana",927,"email@email.com", "Prof. Dr. Ana");
+        try
+        {
+            studentRepo.save(student1);
         }
         catch(ValidationException e)
         {
